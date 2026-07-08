@@ -54,24 +54,24 @@ const RESTAURANT = {
 app.get('/', (req, res) => {
     res.render('home.ejs', {
         restaurant: RESTAURANT,
+        title: 'Home Page',
     })
 })
 
 app.get('/menu', function (req, res) {
     res.render('menu.ejs', {
         restaurant: RESTAURANT,
+        title: 'Menu',
     })
 })
 
 app.get('/menu/:category', function (req, res) {
     const category = req.params.category
-
-    if (category) {
-        res.render('category.ejs', {
-            menuItems: menu,
-        })
-    }
-
+    res.render('category.ejs', {
+        title: category,
+        menuItems: RESTAURANT.menu,
+        category: category,
+    })
 })
 
 app.listen(3000)

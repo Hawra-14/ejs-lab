@@ -1,6 +1,26 @@
 <%- include('./partials/nav') %>
 
-    <h1><%= menu.category %></h1>
+    <h1><%= category.charAt(0).toUpperCase() + category.slice(1) %></h1> <!-- change the first character on the word to an upper case letter-->
+    <!-- category.slice(1): a string method that returns a copy of the string starting from index 1 to the end -->
+    <% menuItems.forEach(item => { %>
+
+        <% if (item.category === category){ %>
+            <h2><%= item.name %>
+                <% if (item.rating === 5) { %>
+                ⭐
+                <% } %>
+            </h2>
+            <p>Price: <%= item.price %></p>
+            <p>Rating: <%= item.rating %>
+                <% if (item.rating === 5) { %>
+                ⭐
+                <% } %>
+            </p>
+            <p>Details: <%= item.details %></p>
+        <% } %>
+        
+    <% }) %>
+
 </body>
 
 </html>
