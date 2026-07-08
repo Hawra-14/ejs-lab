@@ -3,10 +3,18 @@
     <h1>Full Menu</h1>
 
     <% restaurant.menu.forEach(function(item){  %>
-        <%= item.name %>
-        <%= item.price %>
-        <%= item.rating %>
-        <%= item.details %>
+        <h3><%= item.name %>
+            <% if (item.rating === 5) { %>
+            ⭐
+            <% } %>
+        </h3>
+        <p>Price: <%= item.price %></p>
+        <p>Rating: <%= item.rating %>
+            <% if (item.rating === 5) { %>
+            ⭐
+            <% } %>
+        </p>
+        <p>Details: <%= item.details %></p>
         <br>
         <br>
     <% })%>
